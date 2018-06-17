@@ -2,37 +2,36 @@
 
 ## usage example
 
-<p>create a model</p>
-
+#### model
 ```php
 <?php
 
 namespace App;
 
-use App\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 
-    class Article extends BaseModel
-    {
-        protected $guarded = [];
+class Article extends Model
+{
+    protected $guarded = [];
 
-        protected $filter = [
-            'id','title','content','author','created_at'
+    protected $filter = [
+        'id','title','content','author','created_at'
+    ];
+
+    public static function form(){
+        return [
+            'title'=>'',
+            'author'=>'',
+            'content'=>'',
+            'small_content'=>'',
+            'image'=>'',
+            'is_active'=>true
         ];
-
-        public static function form(){
-            return [
-                'title'=>'',
-                'author'=>'',
-                'content'=>'',
-                'small_content'=>'',
-                'image'=>'',
-                'is_active'=>true
-            ];
-        }
     }
+}
 ```
 
-<p>create a controller</p>
+#### controller
 
 ```php
 
